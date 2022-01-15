@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import './App.css';
 import Button from './component/button';
 
-const App = () => {
+const Game = () => {
 
   const[buttonText, setButtonText] =useState
   ({
@@ -19,14 +19,13 @@ const App = () => {
 
   const[player, setPlayer] =useState("Player 1's turn to play");
   const[holdlastvalue, setHoldLastValue]=useState('O');
-  const[status, SetStatus] = useState(false);
   const[disable, SetDisable] = useState(false);
   
   
 
   const handleButtonClick = (button) => {
     // if button is occupied/clicked
-    if (status || buttonText[button] !== '') return;
+    if (buttonText[button] !== '') return;
     
     // if button is not clicked/occupied
     let obj;
@@ -64,12 +63,10 @@ const App = () => {
      buttonText[second] === "X" && 
      buttonText[third] === "X"){
          setPlayer('player 1 won the game');
-         SetStatus(true);
      } else if(buttonText[first] === "O" &&
      buttonText[second] === "O" && 
      buttonText[third] === "O"){
           setPlayer('player 2 won the game');
-          SetStatus(true);
        }
   
   }
@@ -126,4 +123,4 @@ const checkDraw = () =>{
   );
 }
 
-export default App;
+export default Game;
